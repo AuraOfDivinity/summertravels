@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
 
+.button1 {
+  background-color: #73ed65; 
+  color: white; 
+}
+
+.button1:hover {
+  background-color: #38e026;
+}
+.center {
+  margin: auto;
+  text-align: center;
+  width: 500px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  
+}
+</style>
+</head>
+<body style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/BDA_Bermuda.jpg/1280px-BDA_Bermuda.jpg');">
+
+
+<div class="center" style="margin-top: 20%;">
+<h1>Explore the world at your fingertips</h1>
+<br>
+<button class="button button1">Let's Travel</button>
+</div>
+
+</body>
+</html>
