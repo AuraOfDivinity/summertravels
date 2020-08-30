@@ -40,11 +40,7 @@ ReactDOM.render(
         path="/admin/dashboard"
         render={(props) => <AdminLayout {...props} />}
       /> */}
-      <Route
-        exact
-        path="/sample"
-        render={(props) => <SamplePage {...props} />}
-      />
+      <Route path="/sample" render={(props) => <SamplePage {...props} />} />
     </Switch>
   </Router>,
   document.getElementById("root")
