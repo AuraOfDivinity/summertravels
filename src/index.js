@@ -35,10 +35,7 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route path="/" render={(props) => <Landing {...props} />} />
-      <Route
-        path="/admin/dashboard"
-        render={(props) => <AdminLayout {...props} />}
-      />
+      <Route path="/dashboard" render={(props) => <AdminLayout {...props} />} />
     </Switch>
   </Router>,
   document.getElementById("root")
