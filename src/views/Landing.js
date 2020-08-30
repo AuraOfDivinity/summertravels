@@ -29,7 +29,7 @@ const Landing = () => {
         <span style={{ fontSize: "16px", fontWeight: "600" }}>
           Explore the world at your fingertips
         </span>
-        <Link to="/admin/dashboard">
+        <Link to="/admin/beach">
           <Button color="success">Let's Travel</Button>
         </Link>
       </Card>
