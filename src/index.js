@@ -26,6 +26,7 @@ import "assets/scss/paper-dashboard.scss?v=1.2.0";
 import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
 import Landing from "./views/Landing";
+import SamplePage from "./views/SamplePage";
 
 import AdminLayout from "layouts/Admin.js";
 
@@ -39,6 +40,7 @@ ReactDOM.render(
         path="/admin/dashboard"
         render={(props) => <AdminLayout {...props} />}
       />
+      <Route path="/sample" component={SamplePage} />
     </Switch>
   </Router>,
   document.getElementById("root")
