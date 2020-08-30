@@ -35,6 +35,8 @@ import {
   dashboardEmailStatisticsChart,
   dashboardNASDAQChart,
 } from "variables/charts.js";
+import video from "../assets/medias/360video.mp4";
+import { Pannellum, PannellumVideo } from "pannellum-react";
 
 class Dashboard extends React.Component {
   render() {
@@ -42,115 +44,9 @@ class Dashboard extends React.Component {
       <>
         <div className="content">
           <Row>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-globe text-warning" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Capacity</p>
-                        <CardTitle tag="p">150GB</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update Now
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-money-coins text-success" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Revenue</p>
-                        <CardTitle tag="p">$ 1,345</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-calendar" /> Last day
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-vector text-danger" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Errors</p>
-                        <CardTitle tag="p">23</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-clock" /> In the last hour
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-favourite-28 text-primary" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Followers</p>
-                        <CardTitle tag="p">+45K</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update now
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardHeader>
+            <Col lg="8">
+              <Card style={{ padding: "20px" }}>
+                {/* <CardHeader>
                   <CardTitle tag="h5">Users Behavior</CardTitle>
                   <p className="card-category">24 Hours performance</p>
                 </CardHeader>
@@ -167,61 +63,37 @@ class Dashboard extends React.Component {
                   <div className="stats">
                     <i className="fa fa-history" /> Updated 3 minutes ago
                   </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="4">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Email Statistics</CardTitle>
-                  <p className="card-category">Last Campaign Performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Pie
-                    data={dashboardEmailStatisticsChart.data}
-                    options={dashboardEmailStatisticsChart.options}
+                  
+                </CardFooter> */}
+                <PannellumVideo
+                  video={video}
+                  loop
+                  width="100%"
+                  height="600px"
+                  pitch={10}
+                  yaw={180}
+                  hfov={140}
+                  minHfov={50}
+                  maxHfov={180}
+                  controls={true}
+                  mouseZoom={false}
+                >
+                  <Pannellum.Hotspot
+                    type="custom"
+                    pitch={31}
+                    yaw={150}
+                    handleClick={(evt, name) => this.hanldeClick(name)}
+                    name="hs1"
                   />
-                </CardBody>
-                <CardFooter>
-                  <div className="legend">
-                    <i className="fa fa-circle text-primary" /> Opened{" "}
-                    <i className="fa fa-circle text-warning" /> Read{" "}
-                    <i className="fa fa-circle text-danger" /> Deleted{" "}
-                    <i className="fa fa-circle text-gray" /> Unopened
-                  </div>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-calendar" /> Number of emails sent
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="8">
-              <Card className="card-chart">
-                <CardHeader>
-                  <CardTitle tag="h5">NASDAQ: AAPL</CardTitle>
-                  <p className="card-category">Line Chart with Points</p>
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={dashboardNASDAQChart.data}
-                    options={dashboardNASDAQChart.options}
-                    width={400}
-                    height={100}
+
+                  <Pannellum.Hotspot
+                    type="info"
+                    pitch={31}
+                    yaw={-57}
+                    text="Info"
+                    URL="https://github.com/farminf"
                   />
-                </CardBody>
-                <CardFooter>
-                  <div className="chart-legend">
-                    <i className="fa fa-circle text-info" /> Tesla Model S{" "}
-                    <i className="fa fa-circle text-warning" /> BMW 5 Series
-                  </div>
-                  <hr />
-                  <div className="card-stats">
-                    <i className="fa fa-check" /> Data information certified
-                  </div>
-                </CardFooter>
+                </PannellumVideo>
               </Card>
             </Col>
           </Row>
