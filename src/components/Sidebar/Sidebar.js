@@ -23,6 +23,7 @@ import { Nav } from "reactstrap";
 import PerfectScrollbar from "perfect-scrollbar";
 
 import logo from "logo.svg";
+import summer from "../../assets/img/summer.png";
 
 var ps;
 
@@ -62,14 +63,14 @@ class Sidebar extends React.Component {
             className="simple-text logo-mini"
           >
             <div className="logo-img">
-              <img src={logo} alt="react-logo" />
+              <img src={summer} alt="react-logo" />
             </div>
           </a>
           <a
             href="https://www.creative-tim.com"
             className="simple-text logo-normal"
           >
-            Creative Tim
+            Summer Travels
           </a>
         </div>
         <div className="sidebar-wrapper" ref={this.sidebar}>

@@ -19,7 +19,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss?v=1.2.0";
@@ -36,11 +36,8 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route exact path="/" render={(props) => <Landing {...props} />} />
-      <Route
-        path="/admin/dashboard"
-        render={(props) => <AdminLayout {...props} />}
-      />
-      <Route path="/sample" render={(props) => <SamplePage {...props} />} />
+      <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Redirect to="/admin/dashboard" />
     </Switch>
   </Router>,
   document.getElementById("root")

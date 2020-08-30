@@ -19,18 +19,52 @@
 import React from "react";
 // react plugin used to create charts
 // reactstrap components
-import { Card, Row, Col } from "reactstrap";
+import { Card, Row, Col, CardHeader, CardBody } from "reactstrap";
 // core components
-import video from "../assets/medias/360video.mp4";
+import beach from "../assets/medias/MalibuBeach.mp4";
 import { Pannellum, PannellumVideo } from "pannellum-react";
+import mapboxgl from "mapbox-gl";
+import { withRouter } from "react-router-dom";
+import locationList from "../data/data";
+
+mapboxgl.accessToken =
+  "pk.eyJ1IjoiYXVyYW9mZGl2aW5pdHkiLCJhIjoiY2tlZ3M1amtpMDN0NTJ5bnAycjd1eWRudiJ9.sgCA_B-BmkXjn7qfkPbiLg";
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      lng: 5,
+      lat: 34,
+      zoom: 8,
+      data: locationList[0],
+      hotspot: 1,
+    };
+  }
+
+  componentDidMount() {
+    console.log(locationList);
+    // this.setState({ data: locationList[0] });
+
+    const map = new mapboxgl.Map({
+      container: this.mapContainer,
+      style: "mapbox://styles/mapbox/dark-v9",
+      center: [this.state.data.location[1], this.state.data.location[0]],
+      zoom: this.state.zoom,
+    });
+  }
+
+  handleClick = () => {
+    this.props.history.push(`/admin/${this.state.data.nextHotspot}`);
+  };
+
   render() {
+    const { data } = this.state;
     return (
       <>
         <div className="content">
           <Row>
-            <Col lg="8">
+            <Col lg="9">
               <Card style={{ padding: "20px" }}>
                 {/* <CardHeader>
                   <CardTitle tag="h5">Users Behavior</CardTitle>
@@ -52,23 +86,23 @@ class Dashboard extends React.Component {
                   
                 </CardFooter> */}
                 <PannellumVideo
-                  video={video}
+                  video={beach}
                   loop
                   width="100%"
-                  height="600px"
+                  height="80vh"
                   pitch={10}
                   yaw={180}
                   hfov={140}
                   minHfov={50}
                   maxHfov={180}
                   controls={true}
-                  mouseZoom={false}
+                  mouseZoom={true}
                 >
                   <Pannellum.Hotspot
                     type="custom"
                     pitch={31}
                     yaw={150}
-                    handleClick={(evt, name) => this.hanldeClick(name)}
+                    handleClick={(evt, name) => this.handleClick(name)}
                     name="hs1"
                   />
 
@@ -76,10 +110,40 @@ class Dashboard extends React.Component {
                     type="info"
                     pitch={31}
                     yaw={-57}
-                    text="Info"
-                    URL="https://github.com/farminf"
+                    text={data.facts[0]}
+                  />
+
+                  <Pannellum.Hotspot
+                    type="info"
+                    pitch={20}
+                    yaw={-30}
+                    text={data.facts[1]}
                   />
                 </PannellumVideo>
+              </Card>
+            </Col>
+
+            <Col lg="3">
+              <Card style={{ width: "100%", height: "41vh" }}>
+                <CardHeader>
+                  <h5 className="title">Location</h5>
+                  <CardBody>
+                    <div
+                      ref={(el) => (this.mapContainer = el)}
+                      style={{ width: "100%", height: "25vh" }}
+                    />
+                  </CardBody>
+                </CardHeader>
+              </Card>
+              <Card style={{ width: "100%", height: "41vh" }}>
+                <CardHeader>
+                  <h5 className="title">Facts</h5>
+                </CardHeader>
+                <CardBody>
+                  <span style={{ display: "block" }}>1. {data.facts[2]}</span>
+                  <span style={{ display: "block" }}>2. {data.facts[3]}</span>
+                  <span style={{ display: "block" }}>3. {data.facts[4]}</span>
+                </CardBody>
               </Card>
             </Col>
           </Row>
@@ -89,4 +153,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
