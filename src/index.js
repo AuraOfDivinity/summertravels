@@ -28,7 +28,7 @@ import "perfect-scrollbar/css/perfect-scrollbar.css";
 import Landing from "./views/Landing";
 import SamplePage from "./views/SamplePage";
 
-// import AdminLayout from "layouts/Admin.js";
+import AdminLayout from "layouts/Admin.js";
 
 const hist = createBrowserHistory();
 
@@ -36,10 +36,10 @@ ReactDOM.render(
   <Router history={hist}>
     <Switch>
       <Route exact path="/" render={(props) => <Landing {...props} />} />
-      {/* <Route
+      <Route
         path="/admin/dashboard"
         render={(props) => <AdminLayout {...props} />}
-      /> */}
+      />
       <Route path="/sample" render={(props) => <SamplePage {...props} />} />
     </Switch>
   </Router>,
