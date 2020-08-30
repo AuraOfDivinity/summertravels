@@ -1,53 +1,63 @@
 import beach from "../assets/medias/MalibuBeach.mp4";
 import forest from "../assets/medias/Forest.mp4";
+import hamoa from "../assets/medias/hamoa.mp4";
+import mallorca from "../assets/medias/mallorca.mp4";
 
 const locationList = [
   {
-    title: "Caspersen Beach",
+    title: "Malibu Beach",
     currentHotspot: "beach",
-    video: "https://www.youtube.com/watch?v=tBFdp7-TAHg",
+    video: beach,
     facts: [
       "Good place to find prehistoric sharks' teeth!",
       "Has freshwater and saltwater marshes, mangroves and tidal flats",
       "Southern half of the beach was left in its natural state ",
+      "Good place to find prehistoric sharks' teeth!",
+      "Has freshwater and saltwater marshes, mangroves and tidal flats",
     ],
-    location: [36, 119],
+    location: [34.01, -118.41],
     nextHotspot: "beach2",
   },
   {
     title: "Hamoa Beach",
     currentHotspot: "beach2",
-    video: "https://youtu.be/m_QgCPBE1kY?t=9",
+    video: hamoa,
     facts: [
       "Popular surf break",
       "Once known as 'Mokae' because of the cliff around it",
       "Is inside a breached volcanic crater",
+      "Popular surf break",
+      "Once known as 'Mokae' because of the cliff around it",
     ],
-    location: [20, -155],
+    location: [20.43, -155.59],
     nextHotspot: "beach3",
   },
   {
-    title: "Ventura Beach",
+    title: "Mallorca Beach",
     currentHotspot: "beach3",
-    video: "https://www.youtube.com/watch?v=9mlgwus_zew",
+    video: mallorca,
     facts: [
-      "Ventura Beach is a group of beaches",
-      "Has a passage all the way to McGrath State Beach",
-      "Good place to beach comb",
+      "Good place to find prehistoric sharks' teeth!",
+      "Has freshwater and saltwater marshes, mangroves and tidal flats",
+      "Southern half of the beach was left in its natural state ",
+      "Has freshwater and saltwater marshes, mangroves and tidal flats",
+      "Southern half of the beach was left in its natural state ",
     ],
-    location: [40, 79],
-    nextHotspot: "beach4",
+    location: [34.274, -119.229],
+    nextHotspot: "redwood",
   },
   {
-    title: "Cala Millor Beach",
-    currentHotspot: "beach4",
-    video: "https://youtu.be/4m11cfhb7ZM?t=23",
+    title: "Red Wood forest",
+    currentHotspot: "redwood",
+    video: forest,
     facts: [
-      "It's over a kilometre long",
-      "The depth is about 30 metres",
+      "Home to Fern Canyon, with its high, plant-covered walls.",
+      "140, 000 acres in size",
       "To the south lies the protected rocky headland, Punta d'Amer",
+      "140, 000 acres in size",
+      "Home to Fern Canyon, with its high, plant-covered walls.",
     ],
-    location: [40, 79],
+    location: [41.213, -124.004],
     nextHotspot: "beach",
   },
 ];

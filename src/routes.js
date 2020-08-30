@@ -25,6 +25,8 @@ import Maps from "views/Map.js";
 import UserPage from "views/User.js";
 import UpgradeToPro from "views/Upgrade.js";
 import Forest from "views/Forest.js";
+import Ventura from "views/Ventura";
+import Redwood from "views/RedwoodForest";
 
 var routes = [
   {
@@ -35,24 +37,24 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/forest",
-    name: "Forest",
+    path: "/beach2",
+    name: "Redwood Forest",
 
     component: Forest,
     layout: "/admin",
   },
   {
-    path: "/waterfall",
-    name: "Waterfall",
+    path: "/beach3",
+    name: "Ventura Beach",
 
-    component: Maps,
+    component: Ventura,
     layout: "/admin",
   },
   {
-    path: "/notifications",
-    name: "Notifications",
+    path: "/redwood",
+    name: "Hamoa Beach",
 
-    component: Notifications,
+    component: Redwood,
     layout: "/admin",
   },
 ];

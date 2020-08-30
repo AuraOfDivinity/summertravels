@@ -37,7 +37,7 @@ class Dashboard extends React.Component {
       lng: 5,
       lat: 34,
       zoom: 8,
-      data: locationList[1],
+      data: locationList[3],
       hotspot: 1,
     };
   }
