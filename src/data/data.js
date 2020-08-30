@@ -23,7 +23,7 @@ const locationList = [
       "Once known as 'Mokae' because of the cliff around it",
       "Is inside a breached volcanic crater",
     ],
-    location: [40, 79],
+    location: [20, -155],
     nextHotspot: "beach3",
   },
    {
